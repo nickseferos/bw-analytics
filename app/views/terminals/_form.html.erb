@@ -1,0 +1,47 @@
+<%= form_with(model: terminal, local: true) do |form| %>
+  <% if terminal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(terminal.errors.count, "error") %> prohibited this terminal from being saved:</h2>
+
+      <ul>
+        <% terminal.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :terminal %>
+    <%= form.text_field :terminal %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street %>
+    <%= form.text_field :street %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :postal %>
+    <%= form.text_field :postal %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country_id %>
+    <%= form.collection_select(:country_id, @countries, :id, :country, include_blank: false) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :port_id %>
+    <%= form.collection_select(:port_id, @ports, :id, :port, include_blank: true) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
