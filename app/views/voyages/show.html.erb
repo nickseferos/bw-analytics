@@ -10,5 +10,13 @@
   <%= @voyage.number %>
 </p>
 
+<% if @voyage.port_calls.any? %>
+  <%= render @voyage.port_calls %>
+<% end %>
+
+<hr>
+<h4>Add Port Call to Voyage</h4>
+<%= render 'port_calls/form', port_call: @voyage.port_calls.build %>
+
 <%= link_to 'Edit', edit_voyage_path(@voyage) %> |
 <%= link_to 'Back', voyages_path %>

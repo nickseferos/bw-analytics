@@ -1,4 +1,4 @@
-<%= form_with(model: port_call, local: true) do |form| %>
+<%= form_with(model: [ @voyage, port_call ], local: true) do |form| %>
   <% if port_call.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(port_call.errors.count, "error") %> prohibited this port_call from being saved:</h2>
@@ -10,15 +10,13 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= form.label :voyage_id %>
-    <%= form.collection_select(:voyage_id, @voyage, :id, :number) %>
+    
+    <%= form.hidden_field :voyage_id %>
   </div>
-
   <div class="field">
     <%= form.label :terminal_id %>
-    <%= form.text_field :terminal_id %>
+    <%= form.collection_select(:terminal_id, Terminal.all, :id, :terminal) %>
   </div>
 
   <div class="field">

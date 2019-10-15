@@ -1,4 +1,5 @@
 class PortCallsController < ApplicationController
+  before_action :set_voyage, only:[:show, :edit, :update, :destroy]
   before_action :set_port_call, only: [:show, :edit, :update, :destroy]
 
   # GET /port_calls
@@ -30,7 +31,7 @@ class PortCallsController < ApplicationController
     @port_call = PortCall.new(port_call_params)
 
     respond_to do |format|
-      if @port_call.save
+      if @port_call.save!
         format.html { redirect_to @port_call, notice: 'Port call was successfully created.' }
         format.json { render :show, status: :created, location: @port_call }
       else
@@ -67,9 +68,12 @@ class PortCallsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_port_call
-      @port_call = PortCall.find(params[:id])
+      @port_call = @voyage.port_calls.find(params[:id])
     end
 
+    def set_voyage
+      @voyage = Voyage.find(params[:voyage_id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def port_call_params
       params.require(:port_call).permit(:voyage_id, :terminal_id, :eta, :ata, :etd, :atd, :departed)

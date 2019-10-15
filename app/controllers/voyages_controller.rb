@@ -16,6 +16,7 @@ class VoyagesController < ApplicationController
   def new
     @voyage = Voyage.new
     @vessel = Vessel.all
+    @terminal = Terminal.all
   end
 
   # GET /voyages/1/edit
