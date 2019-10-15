@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vessel:</strong>
+  <%= @voyage.vessel_id %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @voyage.number %>
+</p>
+
+<%= link_to 'Edit', edit_voyage_path(@voyage) %> |
+<%= link_to 'Back', voyages_path %>

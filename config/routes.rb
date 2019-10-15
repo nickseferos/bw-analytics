@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :port_calls
+  resources :voyages
+  resources :vessels
   resources :steamshiplines
   resources :terminals
   root 'dashboard#index'

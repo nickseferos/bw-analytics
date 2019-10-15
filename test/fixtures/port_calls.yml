@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  voyage: one
+  terminal: one
+  eta: 2019-10-14 10:04:31
+  ata: 2019-10-14 10:04:31
+  etd: 2019-10-14 10:04:31
+  atd: 2019-10-14 10:04:31
+  departed: false
+
+two:
+  voyage: two
+  terminal: two
+  eta: 2019-10-14 10:04:31
+  ata: 2019-10-14 10:04:31
+  etd: 2019-10-14 10:04:31
+  atd: 2019-10-14 10:04:31
+  departed: false

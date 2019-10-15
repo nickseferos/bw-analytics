@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Voyage:</strong>
+  <%= @port_call.voyage_id %>
+</p>
+
+<p>
+  <strong>Terminal:</strong>
+  <%= @port_call.terminal_id %>
+</p>
+
+<p>
+  <strong>Eta:</strong>
+  <%= @port_call.eta %>
+</p>
+
+<p>
+  <strong>Ata:</strong>
+  <%= @port_call.ata %>
+</p>
+
+<p>
+  <strong>Etd:</strong>
+  <%= @port_call.etd %>
+</p>
+
+<p>
+  <strong>Atd:</strong>
+  <%= @port_call.atd %>
+</p>
+
+<p>
+  <strong>Departed:</strong>
+  <%= @port_call.departed %>
+</p>
+
+<%= link_to 'Edit', edit_port_call_path(@port_call) %> |
+<%= link_to 'Back', port_calls_path %>

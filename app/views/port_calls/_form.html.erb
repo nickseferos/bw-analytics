@@ -1,0 +1,52 @@
+<%= form_with(model: port_call, local: true) do |form| %>
+  <% if port_call.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(port_call.errors.count, "error") %> prohibited this port_call from being saved:</h2>
+
+      <ul>
+        <% port_call.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :voyage_id %>
+    <%= form.collection_select(:) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :terminal_id %>
+    <%= form.text_field :terminal_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :eta %>
+    <%= form.datetime_select :eta %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ata %>
+    <%= form.datetime_select :ata %>
+  </div>
+
+  <div class="field">
+    <%= form.label :etd %>
+    <%= form.datetime_select :etd %>
+  </div>
+
+  <div class="field">
+    <%= form.label :atd %>
+    <%= form.datetime_select :atd %>
+  </div>
+
+  <div class="field">
+    <%= form.label :departed %>
+    <%= form.check_box :departed %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
