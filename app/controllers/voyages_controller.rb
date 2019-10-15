@@ -1,5 +1,5 @@
 class VoyagesController < ApplicationController
-  before_action :set_voyage, only: [:show, :edit, :update, :destroy]
+  before_action :set_voyage, only: [:show, :update, :destroy]
 
   # GET /voyages
   # GET /voyages.json

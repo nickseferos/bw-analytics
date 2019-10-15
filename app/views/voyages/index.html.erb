@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Voyages</h1>
+<h1>Voyage Management</h1>
 
 <table>
   <thead>
@@ -14,11 +14,10 @@
   <tbody>
     <% @voyages.each do |voyage| %>
       <tr>
-        <td><%= voyage.vessel_id %></td>
+        <td><%= voyage.vessel.name %></td>
         <td><%= voyage.number %></td>
-        <td><%= link_to 'Show', voyage %></td>
-        <td><%= link_to 'Edit', edit_voyage_path(voyage) %></td>
-        <td><%= link_to 'Destroy', voyage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'View', voyage %></td>
+        <td><%= link_to 'Delete', voyage, method: :delete, data: { confirm: 'This will delete associated port calls, shifts, counts, crane operator analytics and all other analytics.' } %></td>
       </tr>
     <% end %>
   </tbody>
