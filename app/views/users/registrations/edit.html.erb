@@ -30,6 +30,19 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
+  <div class="field">
+    <%= f.label :fname %><br />
+    <%= f.text_field :fname, autocomplete: "first-name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lname %><br />
+    <%= f.text_field :lname, autocomplete: "last-name" %>
+  </div>
+  <div class="field">
+    <%= f.label :terminal_id %><br />
+    <%= f.collection_select(:terminal_id, Terminal.all, :id, :terminal) %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Update" %>

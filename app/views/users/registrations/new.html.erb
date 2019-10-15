@@ -30,6 +30,10 @@
     <%= f.label :lname %><br />
     <%= f.text_field :lname, autocomplete: "last-name" %>
   </div>
+  <div class="field">
+    <%= f.label :terminal_id %><br />
+    <%= f.collection_select(:terminal_id, Terminal.all, :id, :terminal) %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
