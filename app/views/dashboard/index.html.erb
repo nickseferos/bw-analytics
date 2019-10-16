@@ -1,7 +1,55 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
-<%= current_user.fname %>
-<% @user_port_calls.each do |p| %>
-<%= p.eta %>
-<%= p.terminal_id %>
-<% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <!-- Current Vessels -->
+
+      <h4>Current Vessels</h4>
+      <% @user_port_calls.each do |p| %>
+        <% if p.ata.past? && p.departed == false %>
+        <div class="card">
+          <div class="card-body">
+            <h4><%= p.voyage.vessel.name %> <%= p.voyage.number %></h4>
+            <p>Scheduled to arrive <%= p.eta.strftime("%A, %B %d at %H%M") %></p>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+      <!-- End Current Vessel -->
+
+      <!-- Upcoming Vessels -->
+      <h4>Upcoming Vessels</h4>
+      <% @user_upcoming_port_calls.each do |p| %>
+        <% if p.eta.future? %>
+          <div class="card">
+            <div class="card-body">
+              <h4><%= p.voyage.vessel.name %> <%= p.voyage.number %></h4>
+              <p>Scheduled to arrive <%= p.eta.strftime("%A, %B %d at %H%M") %></p>
+            </div>
+          </div>
+        <% else %>
+        <div class="card">
+          <div class="card-body">
+            <h4>No upcoming voyages! <%= link_to 'Add One Now', new_voyage_path %></h4>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+      <!-- End Upcoming Vessel -->
+
+      <!-- Previous Vessels -->
+      <h4>Previous Vessels</h4>
+      <% @user_port_calls.each do |p| %>
+        <% if p.departed == true || p.atd.past? %>
+          <div class="card">
+            <div class="card-body">
+              <p><%= p.eta %><%= p.terminal_id %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <!-- End Previous Vessel -->
+    </div>
+  </div>
+
+</div>
+<!-- #/ container -->
