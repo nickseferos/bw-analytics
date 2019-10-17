@@ -32,11 +32,11 @@ class PortCallsController < ApplicationController
 
     respond_to do |format|
       if @port_call.save!
-        format.html { redirect_to @port_call, notice: 'Port call was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Port call was successfully created.' }
         format.json { render :show, status: :created, location: @port_call }
       else
         format.html { render :new }
-        format.json { render json: @port_call.errors, status: :unprocessable_entity }
+        format.json { render json: @voyage.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,7 +46,7 @@ class PortCallsController < ApplicationController
   def update
     respond_to do |format|
       if @port_call.update(port_call_params)
-        format.html { redirect_to [ @voyage, @port_call ], notice: 'Port call was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Port call was successfully updated.' }
         format.json { render :show, status: :ok, location: @port_call }
       else
         format.html { render :edit }

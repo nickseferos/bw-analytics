@@ -1,28 +1,40 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Voyage Management</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Vessel</th>
-      <th>Number</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @voyages.each do |voyage| %>
-      <tr>
-        <td><%= voyage.vessel.name %></td>
-        <td><%= voyage.number %></td>
-        <td><%= link_to 'View', voyage %></td>
-        <td><%= link_to 'Delete', voyage, method: :delete, data: { confirm: 'This will delete associated port calls, shifts, counts, crane operator analytics and all other analytics.' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Voyage', new_voyage_path %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">
+            <h4>Voyage Management</h4>
+            <%= link_to 'New Voyage', new_voyage_path, class: 'btn btn-outline-primary' %>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Voyage</th>
+                  <th>Estimated Arrival</th>
+                  <th>Estimated Departure</th>
+                  <th>Departed</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% @voyages.each do |voyage| %>
+                    <tr>
+                      <td><%= voyage.vessel.name %> <%= voyage.number %></td>
+                      <td>HOLD</td>
+                      <td>hold</td>
+                      <td>hold</td>
+                      <td class="btn-group"><%= link_to 'Edit Voyage & Port Call', voyage, class: 'btn btn-outline-primary btn-sm' %><%= link_to 'Delete', voyage, method: :delete, data: { confirm: 'This will delete associated port calls, shifts, counts, crane operator analytics and all other analytics.' }, class: 'btn btn-outline-danger btn-sm' %></td>
+                    </tr>
+                  <% end %>
+              </tbody>
+            </table>
+            <p>Looking for voyages over 4 weeks ago? <%= link_to '!Voyage Archives!', root_path %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- /# card -->
+</div>

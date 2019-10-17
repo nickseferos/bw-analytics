@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :vessel_id %>
-    <%= form.collection_select(:vessel_id, @vessel, :id, :name) %>
+    <%= form.collection_select(:vessel_id, @vessel, :id, :name, class: 'form-control') %>
   </div>
 
   <div class="field">
     <%= form.label :number %>
-    <%= form.text_field :number %>
+    <%= form.text_field :number, class: 'form-control input-default' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-outline-primary' %>
   </div>
 <% end %>

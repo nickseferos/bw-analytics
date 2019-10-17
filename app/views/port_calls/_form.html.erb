@@ -11,7 +11,7 @@
     </div>
   <% end %>
   <div class="field">
-    
+
     <%= form.hidden_field :voyage_id %>
   </div>
   <div class="field">
@@ -20,6 +20,7 @@
   </div>
 
   <div class="field">
+
     <%= form.label :eta %>
     <%= form.datetime_select :eta %>
   </div>
@@ -39,12 +40,12 @@
     <%= form.datetime_select :atd %>
   </div>
 
-  <div class="field">
-    <%= form.label :departed %>
-    <%= form.check_box :departed %>
+  <div class="field custom-control custom-switch">
+    <%= form.label :departed, class: 'form-check-label' %>
+    <%= form.check_box :departed, class: 'form-check-input' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-outline-primary' %>
   </div>
 <% end %>
