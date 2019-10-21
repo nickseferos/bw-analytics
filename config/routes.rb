@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+
+  resources :crane_operators
   resources :voyages do
-    resources :port_calls
+    resources :port_calls do
+      resources :shifts do
+        resources :counts
+      end
+    end
   end
 
   resources :vessels

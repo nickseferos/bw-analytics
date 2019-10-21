@@ -1,0 +1,37 @@
+<%= form_with(model: count, local: true) do |form| %>
+  <% if count.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(count.errors.count, "error") %> prohibited this count from being saved:</h2>
+
+      <ul>
+        <% count.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :move %>
+    <%= form.text_field :move %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time_exception %>
+    <%= form.text_field :time_exception %>
+  </div>
+
+  <div class="field">
+    <%= form.label :crane_operator_id %>
+    <%= form.text_field :crane_operator_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :shift_id %>
+    <%= form.text_field :shift_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

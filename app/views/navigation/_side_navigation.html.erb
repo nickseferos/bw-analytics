@@ -18,15 +18,14 @@ Sidebar start
           <li><%= link_to  'Voyage Archive', voyages_path %></li>
         </ul>
       </li>
-      <li class="nav-label">Advanced Settings</li>
+      <li class="nav-label">Terminal Settings</li>
       <li>
         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
           <i class="icon-envelope menu-icon"></i> <span class="nav-text">Crane Operators</span>
         </a>
           <ul aria-expanded="false">
-          <li><%= link_to '!Add Crane Operator!', new_vessel_path %></li>
-          <li><%= link_to '!Manage Crane Operator!', new_vessel_path %></li>
-          <li><%= link_to '!Wiki/Guide!', new_vessel_path %></li>
+          <li><%= link_to 'Add Crane Operator', new_crane_operator_path %></li>
+          <li><%= link_to 'Manage Crane Operator', crane_operators_path %></li>
         </ul>
       </li>
       <li>

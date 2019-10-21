@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Crane Operators</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Work</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @crane_operators.each do |crane_operator| %>
+      <tr>
+        <td><%= crane_operator.work_id %></td>
+        <td><%= crane_operator.name %></td>
+        <td><%= link_to 'Show', crane_operator %></td>
+        <td><%= link_to 'Edit', edit_crane_operator_path(crane_operator) %></td>
+        <td><%= link_to 'Destroy', crane_operator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Crane Operator', new_crane_operator_path %>

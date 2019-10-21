@@ -11,8 +11,10 @@
   </head>
 
   <body>
-    <%= render 'navigation/top_navigation' %>
-    <%= render 'navigation/side_navigation' %>
+    <% if current_user %>
+      <%= render 'navigation/top_navigation' %>
+      <%= render 'navigation/side_navigation' %>
+    <% end %>
     <div class="content-body">
       <%= yield %>
     </div>
