@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'will_paginate', '~> 3.1.0'
 
+gem 'descriptive_statistics', '~> 2.4.0', :require => 'descriptive_statistics/safe'
+
 gem 'devise'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
