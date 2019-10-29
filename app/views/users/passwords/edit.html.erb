@@ -1,5 +1,3 @@
-<h2>Change your password</h2>
-
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= f.hidden_field :reset_password_token %>
@@ -20,6 +18,54 @@
   <div class="actions">
     <%= f.submit "Change my password" %>
   </div>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="login-form-bg h-100">
+    <div class="container h-100">
+      <div class="row justify-content-center h-100">
+        <div class="col-xl-6">
+          <div class="form-input-content">
+            <div class="card login-form mb-0">
+              <div class="card-body pt-5">
+                <div class="text-center">
+                  <h3>Terminal Analytics</h3>
+                  <h4>Change Your Password</h4>
+                </div>
+              <form class="mt-5 mb-5 login-input">
+                <div class="form-group">
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'email@example.com' %>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= f.text_field :fname, autocomplete: "first-name", class: 'form-control', placeholder: 'First Name' %>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= f.text_field :lname, autocomplete: "last-name", class: 'form-control', placeholder: 'Last Name' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <% if @minimum_password_length %>
+                    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password (#{@minimum_password_length} characters minimum)", class: 'form-control' %>
+                  <% end %>
+                </div>
+                <div class="form-group">
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'Password Confirmation' %>
+                </div>
+                <div class="form-group">
+                  <%= f.collection_select(:terminal_id, Terminal.all, :id, :terminal, include_blank: 'Select Your Terminal', class: 'dropdown-menu') %>
+                </div>
+                <%= f.submit "Change My Password", class: 'btn login-form__btn submit w-100' %>
+              </form>
+              <p class="mt-5 login-form__footer">Have account? <%= render "users/shared/links", class: 'text-primary' %></p>
+              <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
-
-<%= render "users/shared/links" %>

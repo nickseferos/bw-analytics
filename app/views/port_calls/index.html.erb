@@ -26,8 +26,8 @@
         <td><%= port_call.etd %></td>
         <td><%= port_call.atd %></td>
         <td><%= port_call.departed %></td>
-        <td><%= link_to 'Show', port_call %></td>
-        <td><%= link_to 'Edit', edit_port_call_path(port_call) %></td>
+        <td><%= link_to 'Show', voyage_port_calls_path %></td>
+        <td><%= link_to 'Edit', edit_voyage_port_call_path(@voyage, port_call) %></td>
         <td><%= link_to 'Destroy', port_call, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

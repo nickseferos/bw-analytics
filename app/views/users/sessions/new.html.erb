@@ -1,26 +1,40 @@
-<h2>Log in</h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <div class="h-100" data-theme-version="light" data-layout="vertical" data-nav-headerbg="color_1" data-headerbg="color_1" data-sidebar-style="full" data-sibebarbg="color_1" data-sidebar-position="static" data-header-position="static" data-container="wide" direction="ltr">
+    <div class="login-form-bg h-100">
+      <div class="container h-100">
+        <div class="row justify-content-center h-100">
+          <div class="col-xl-6">
+            <div class="form-input-content">
+              <div class="card login-form mb-0">
+                <div class="card-body pt-5">
+                  <div class="text-center">
+                    <h3>Terminal Analytics</h3>
+                    <h4>Log In</h4>
+                  </div>
+                  <form class="mt-5 mb-5 login-input">
+                    <div class="form-group">
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email' %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Password' %>
+                    </div>
+                    <div class="form-group text-center">
+                      <% if devise_mapping.rememberable? %>
+                        <div class="field">
+                          <%= f.check_box :remember_me %>
+                          <%= f.label :remember_me %>
+                        </div>
+                      <% end %>
+                    </div>
+                    <%= f.submit "Sign In", class: 'btn login-form__btn submit w-100' %>
+                  </form>
+                  <p class="mt-5 login-form__footer text-center">Dont have account? <%= render "users/shared/links" %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
 <% end %>
-
-<%= render "users/shared/links" %>

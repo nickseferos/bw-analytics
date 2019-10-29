@@ -1,16 +1,30 @@
-<h2>Forgot your password?</h2>
-
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div class="h-100" data-theme-version="light" data-layout="vertical" data-nav-headerbg="color_1" data-headerbg="color_1" data-sidebar-style="full" data-sibebarbg="color_1" data-sidebar-position="static" data-header-position="static" data-container="wide" direction="ltr">
+    <div class="login-form-bg h-100">
+      <div class="container h-100">
+        <div class="row justify-content-center h-100">
+          <div class="col-xl-6">
+            <div class="form-input-content">
+              <div class="card login-form mb-0">
+                <div class="card-body pt-5">
+                  <div class="text-center">
+                    <h3>Terminal Analytics</h3>
+                    <h4>Forgot Your Password?</h4>
+                  </div>
+                  <form class="mt-5 mb-5 login-input">
+                    <div class="form-group">
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email' %>
+                    </div>
+                    <%= f.submit "Send Reset Password Instructions", class: 'btn login-form__btn submit w-100' %>
+                  </form>
+                  <p class="mt-5 login-form__footer text-center">Already have account? <%= render "users/shared/links" %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
-
-<%= render "users/shared/links" %>
