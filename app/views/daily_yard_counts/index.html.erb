@@ -16,9 +16,8 @@
                   <th>Trucks</th>
                   <th>Transactions</th>
                   <th>Detained</th>
-                  <th>Turntime</th>
+                  <th>Turn Time</th>
                   <th>Note</th>
-                  <th>Terminal</th>
                   <th colspan="3"></th>
                 </tr>
               </thead>
@@ -31,10 +30,10 @@
                       <td><%= daily_yard_count.detained %></td>
                       <td><%= daily_yard_count.turntime.strftime("%M:%S") %></td>
                       <td><%= daily_yard_count.note %></td>
-                      <td><%= daily_yard_count.terminal_id %></td>
                       <td class="btn-group"><%= link_to 'Edit', edit_daily_yard_count_path(daily_yard_count), class: 'btn btn-outline-primary btn-sm' %><%= link_to 'Delete', daily_yard_count, method: :delete, data: { confirm: 'This will delete any possible associated port calls shifts, counts, crane operator analytics and all other analytics.' }, class: 'btn btn-outline-danger btn-sm' %></td>
                     </tr>
                   <% end %>
+                  <%= will_paginate @daily_yard_counts %>
               </tbody>
             </table>
           </div>

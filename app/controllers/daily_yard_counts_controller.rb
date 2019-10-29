@@ -4,7 +4,7 @@ class DailyYardCountsController < ApplicationController
   # GET /daily_yard_counts
   # GET /daily_yard_counts.json
   def index
-    @daily_yard_counts = DailyYardCount.all.order("date DESC").reverse
+    @daily_yard_counts = DailyYardCount.where(terminal_id: current_user.terminal_id).reorder("date DESC").page(params[:page]).per_page(14)
   end
 
   # GET /daily_yard_counts/1

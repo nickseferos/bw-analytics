@@ -4,10 +4,13 @@ Sidebar start
 <div class="nk-sidebar">
   <div class="nk-nav-scroll">
     <ul class="metismenu" id="menu">
-      <li class="nav-label">Vessel Operations</li>
       <li>
         <%= link_to 'Home', root_path, class: '' %>
       </li>
+      <li>
+        <%= link_to 'Terminal Stats', terminal_stats_path, class: '' %>
+      </li>
+      <li class="nav-label">Vessel Operations</li>
       <li class="mega-menu mega-menu-sm">
         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
           <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Voyages</span>

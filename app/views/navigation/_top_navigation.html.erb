@@ -3,7 +3,7 @@ Nav header start
 ***********************************-->
 <div class="nav-header">
   <div class="brand-logo">
-    <%= link_to 'BoxWhere Analytics', root_path, class: 'logo-abbr brand-title' %>
+    <%= link_to "#{current_user.terminal.terminal} Analytics", root_path, class: 'logo-abbr brand-title' %>
   </div>
 </div>
 <!--**********************************
@@ -44,9 +44,8 @@ Header start
             <div class="dropdown-content-body">
               <ul>
                 <li>Welcome <%= current_user.fname %></li>
-                <li><%= current_user.terminal.terminal %> in <%= current_user.terminal.city %></li>
                 <li>
-                  <%= link_to "#{current_user.terminal.terminal} Stats!", root_path %>
+                  <%= link_to "#{current_user.terminal.terminal} Stats", terminal_stats_path %>
                 </li>
 
                 <hr class="my-2">
@@ -54,9 +53,9 @@ Header start
                   <%= link_to 'Account Settings', edit_user_registration_path %>
                 </li>
                 <li>
-                  <%= link_to 'Sign Out', destroy_user_session_path, redirect_to: new_user_session_path %>
+                  <%= link_to 'Sign Out', destroy_user_session_path, redirect_to: root_path %>
                 </li>
-                <li><%= link_to 'Request a Feature', url: "http://mailto:nick@boxwhere.com?subject=feature_request" %></li>
+                <li><%= mail_to 'nick@boxwhere.com', 'Request a Feature', subject: "Feature Request from #{current_user.fname} at #{current_user.terminal.terminal}" %></li>
               </ul>
             </div>
           </div>

@@ -12,6 +12,9 @@ class VoyagesController < ApplicationController
   def show
   end
 
+  def recap
+  end
+
   # GET /voyages/new
   def new
     @voyage = Voyage.new

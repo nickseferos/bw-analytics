@@ -1,0 +1,2 @@
+module TerminalAnalyticsHelper
+end
