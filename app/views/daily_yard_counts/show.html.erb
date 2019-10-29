@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @daily_yard_count.date %>
+</p>
+
+<p>
+  <strong>Trucks:</strong>
+  <%= @daily_yard_count.trucks %>
+</p>
+
+<p>
+  <strong>Transactions:</strong>
+  <%= @daily_yard_count.transactions %>
+</p>
+
+<p>
+  <strong>Detained:</strong>
+  <%= @daily_yard_count.detained %>
+</p>
+
+<p>
+  <strong>Turntime:</strong>
+  <%= @daily_yard_count.turntime %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @daily_yard_count.note %>
+</p>
+
+<p>
+  <strong>Terminal:</strong>
+  <%= @daily_yard_count.terminal_id %>
+</p>
+
+<%= link_to 'Edit', edit_daily_yard_count_path(@daily_yard_count) %> |
+<%= link_to 'Back', daily_yard_counts_path %>

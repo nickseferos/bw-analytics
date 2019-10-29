@@ -4,7 +4,7 @@ Sidebar start
 <div class="nk-sidebar">
   <div class="nk-nav-scroll">
     <ul class="metismenu" id="menu">
-      <li class="nav-label">Dashboard</li>
+      <li class="nav-label">Vessel Operations</li>
       <li>
         <%= link_to 'Home', root_path, class: '' %>
       </li>
@@ -16,6 +16,16 @@ Sidebar start
           <li><%= link_to 'Add a Voyage', new_voyage_path %></li>
           <li><%= link_to 'Manage Voyages', voyages_path %></li>
           <li><%= link_to  'Voyage Archive', voyages_path %></li>
+        </ul>
+      </li>
+      <li class="nav-label">Terminal Operations</li>
+      <li class="mega-menu mega-menu-sm">
+        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+          <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Daily Activity</span>
+        </a>
+        <ul aria-expanded="false">
+          <li><%= link_to 'Add a Daily Activity', new_daily_yard_count_path %></li>
+          <li><%= link_to 'Manage Daily Activity', daily_yard_counts_path %></li>
         </ul>
       </li>
       <li class="nav-label">Terminal Settings</li>

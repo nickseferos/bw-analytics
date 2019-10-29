@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :daily_yard_counts
   resources :crane_operators
   resources :voyages do
     resources :port_calls do
