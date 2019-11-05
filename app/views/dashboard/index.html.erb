@@ -10,7 +10,7 @@
             <h4><%= p.voyage.vessel.name %> <%= p.voyage.number %></h4>
             <div class="btn-group">
               <%= link_to 'Edit & Depart Voyage', p.voyage, class: 'btn btn-outline-primary btn-sm' %>
-              <%= link_to '!Shifts!', root_path, class: 'btn btn-outline-primary btn-sm' %>
+              <%= link_to 'Shifts', voyage_port_call_path(p.voyage, p), class: 'btn btn-outline-primary btn-sm' %>
               <%= link_to '!Hourly Count!', root_path, class: 'btn btn-outline-success btn-sm' %>
             </div>
             <p>Scheduled to arrive <%= p.eta.strftime("%A, %B %d at %H%M") %></p>
@@ -29,7 +29,7 @@
               <h4><%= p.voyage.vessel.name %> <%= p.voyage.number %></h4>
               <div class="btn-group">
                 <%= link_to 'Edit Voyage', p.voyage, class: 'btn btn-outline-primary btn-sm' %>
-                <%= link_to '!Shifts!', root_path, class: 'btn btn-outline-primary btn-sm' %>
+                <%= link_to 'Shifts', voyage_port_call_path(p.voyage, p), class: 'btn btn-outline-primary btn-sm' %>
               </div>
               <p>Scheduled to arrive <%= p.eta.strftime("%A, %B %d at %H%M") %></p>
             </div>

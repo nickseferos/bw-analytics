@@ -5,8 +5,7 @@
       <div class="card">
         <div class="card-body">
           <div class="card-title">
-            <h4>Voyage Management</h4>
-            <%= link_to 'New Voyage', new_voyage_path, class: 'btn btn-outline-primary' %>
+            <h4>Voyage Management <%= link_to 'New Voyage', new_voyage_path, class: 'btn btn-outline-primary' %></h4>
           </div>
           <div class="table-responsive">
             <table class="table table-hover">
@@ -22,7 +21,7 @@
                   <% @voyages.each do |voyage| %>
                     <tr>
                       <td><%= voyage.vessel.name %> <%= voyage.number %></td>
-                      <td>HOLD</td>
+                      <td>voyage.port_calls.eta.strftime("%A, %B %d at %H%M")</td>
                       <td>hold</td>
                       <td>hold</td>
                       <td class="btn-group"><%= link_to 'Edit Voyage & Port Call', voyage, class: 'btn btn-outline-primary btn-sm' %><%= link_to 'Delete', voyage, method: :delete, data: { confirm: 'This will delete associated port calls, shifts, counts, crane operator analytics and all other analytics.' }, class: 'btn btn-outline-danger btn-sm' %></td>

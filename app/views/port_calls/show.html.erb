@@ -1,38 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <!-- Port Call Info -->
+        <div class="card">
+          <div class="card-body">
+            <h2><%= @port_call.voyage.vessel.name %> <%= @port_call.voyage.number %> <%= link_to 'Edit & Depart Voyage', voyage_path(@port_call.voyage), class: 'btn btn-outline-primary' %></h2>
+            <!-- Place logic for arrived/not time display & departed -->
+            <p>Scheduled to arrive at <%= @port_call.eta.strftime("%A, %B %d at %H%M") %></p>
+          </div>
+        </div>
+      <!-- End Port Call Info -->
 
-<p>
-  <strong>Voyage:</strong>
-  <%= @port_call.voyage_id %>
-</p>
+      <!-- Shift -->
+      <div class="card">
+        <div class="card-body">
+          <div class="col-lg-12">
+            <div class="card-title">
+              <h4>Add Shift to this Port Call</h4>
+              <%= render 'shifts/form', shift: @port_call.shifts.build %>
+            </div>
 
-<p>
-  <strong>Terminal:</strong>
-  <%= @port_call.terminal_id %>
-</p>
+          </div>
+        </div>
+      </div>
+      <!-- End Shift -->
+    </div>
+  </div>
 
-<p>
-  <strong>Eta:</strong>
-  <%= @port_call.eta %>
-</p>
-
-<p>
-  <strong>Ata:</strong>
-  <%= @port_call.ata %>
-</p>
-
-<p>
-  <strong>Etd:</strong>
-  <%= @port_call.etd %>
-</p>
-
-<p>
-  <strong>Atd:</strong>
-  <%= @port_call.atd %>
-</p>
-
-<p>
-  <strong>Departed:</strong>
-  <%= @port_call.departed %>
-</p>
-
-<%= link_to 'Edit', edit_voyage_port_call_path(@voyage, @port_call) %>
+</div>
