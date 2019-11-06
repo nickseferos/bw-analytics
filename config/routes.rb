@@ -4,13 +4,14 @@ Rails.application.routes.draw do
   resources :daily_yard_counts
   resources :crane_operators
   resources :voyages do
-    resources :port_calls do
-      resources :shifts do
-        resources :counts
-      end
-    end
+    resources :port_calls
   end
 
+  resources :port_calls, only: [:show, :edit, :update, :destroy] do
+    resources :shifts
+  end
+# shifts
+#  counts
   resources :vessels
   resources :steamshiplines
   resources :terminals

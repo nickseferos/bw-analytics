@@ -1,5 +1,7 @@
 class ShiftsController < ApplicationController
+  before_action :set_port_call, only: [:show, :edit, :update, :destroy]
   before_action :set_shift, only: [:show, :edit, :update, :destroy]
+
 
   # GET /shifts
   # GET /shifts.json
@@ -15,6 +17,10 @@ class ShiftsController < ApplicationController
   # GET /shifts/new
   def new
     @shift = Shift.new
+    @port_call = PortCall.all
+    @terminal = Terminal.all
+    @voyage = Voyage.all
+    @vessel = Vessel.all
   end
 
   # GET /shifts/1/edit
@@ -28,7 +34,7 @@ class ShiftsController < ApplicationController
 
     respond_to do |format|
       if @shift.save
-        format.html { redirect_to @shift, notice: 'Shift was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Shift was successfully created.' }
         format.json { render :show, status: :created, location: @shift }
       else
         format.html { render :new }
@@ -42,7 +48,7 @@ class ShiftsController < ApplicationController
   def update
     respond_to do |format|
       if @shift.update(shift_params)
-        format.html { redirect_to @shift, notice: 'Shift was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Shift was successfully updated.' }
         format.json { render :show, status: :ok, location: @shift }
       else
         format.html { render :edit }
@@ -64,11 +70,19 @@ class ShiftsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_shift
-      @shift = Shift.find(params[:id])
+      @shift = @port_call.shifts.find(params[:id])
+    end
+
+    def set_port_call
+      @port_call = PortCall.find(params[:port_call_id])
+    end
+
+    def set_voyage
+      @voyage = Voyage.find(params[:voyage_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shift_params
-      params.require(:shift).permit(:plan_moves, :actual_moves, :port_call_id)
+      params.require(:shift).permit(:plan_moves, :actual_moves, :port_call_id, :start_date_time)
     end
 end

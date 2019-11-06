@@ -1,5 +1,4 @@
 class PortCallsController < ApplicationController
-  before_action :set_voyage, only:[:show, :edit, :update, :destroy]
   before_action :set_port_call, only: [:show, :edit, :update, :destroy]
 
   # GET /port_calls
@@ -11,6 +10,7 @@ class PortCallsController < ApplicationController
   # GET /port_calls/1
   # GET /port_calls/1.json
   def show
+
   end
 
   # GET /port_calls/new
@@ -68,12 +68,9 @@ class PortCallsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_port_call
-      @port_call = @voyage.port_calls.find(params[:id])
+      @port_call = PortCall.find(params[:id])
     end
 
-    def set_voyage
-      @voyage = Voyage.find(params[:voyage_id])
-    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def port_call_params
       params.require(:port_call).permit(:voyage_id, :terminal_id, :eta, :ata, :etd, :atd, :departed)
