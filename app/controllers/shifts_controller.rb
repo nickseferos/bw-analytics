@@ -77,10 +77,6 @@ class ShiftsController < ApplicationController
       @port_call = PortCall.find(params[:port_call_id])
     end
 
-    def set_voyage
-      @voyage = Voyage.find(params[:voyage_id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def shift_params
       params.require(:shift).permit(:plan_moves, :actual_moves, :port_call_id, :start_date_time)

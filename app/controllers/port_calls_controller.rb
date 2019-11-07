@@ -60,7 +60,7 @@ class PortCallsController < ApplicationController
   def destroy
     @port_call.destroy
     respond_to do |format|
-      format.html { redirect_to port_calls_url, notice: 'Port call was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Port call was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
