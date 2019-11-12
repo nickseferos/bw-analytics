@@ -7,11 +7,11 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-// require("packs/gleek")
-// require("packs/settings")
-// require("packs/styleSwitcher")
-// require("packs/custom")
-// require("packs/dashboard/dashboard-1")
+require("packs/gleek")
+require("packs/settings")
+require("packs/styleSwitcher")
+require("packs/custom")
+require("packs/dashboard/dashboard-1")
 import 'bootstrap'
 import "../stylesheets/application"
 
